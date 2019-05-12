@@ -1,7 +1,6 @@
 # =======================
 #     MENUS FUNCTIONS
 # =======================
-
 # Main menu
 def main_menu():
     print("Welcome,\n")
@@ -18,7 +17,6 @@ def main_menu():
 
 # Execute menu
 def exec_menu(choice):
-    os.system("cls" if os.name == "nt" else "clear")
     ch = choice.lower()
     if ch == '':
         menu_actions['main_menu']()
