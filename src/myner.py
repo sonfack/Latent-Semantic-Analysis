@@ -1,5 +1,6 @@
 import spacy
 nlp = spacy.load("en")
+
 mytext = "But Google of Larry Page is starting from behind. The company made a late push\ninto hardware, and Apple’s Siri"
 
 def myNer(text):

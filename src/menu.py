@@ -9,8 +9,9 @@ def main_menu():
 
     print("Welcome,\n")
     print("Please choose the menu you want to start:")
-    print("1. To retreive all data")
-    print("2. To retreive filter data")
+    print("1. To create LSA modle")
+    print("2. To analyze your data")
+    print("3. To analyze sentiments of your data")
     print("\n0. Quit")
     choice = input(" >>  ")
     exec_menu(choice)
@@ -35,8 +36,7 @@ def exec_menu(choice):
 
 # Menu 1
 def menu1():
-    print("Menu --> To retreive all data !\n")
-    dataset = input('Enter your database name eg:athaliana_eg_gene : ')
+    print("Menu --> To create LSA model !\n")
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
@@ -46,22 +46,16 @@ def menu1():
 
 # Menu 2
 def menu2():
-    print("Menu --> To retreive filter data !\n")
-    server = serverConnection(verbose=True)
-    print('Example of databse name : athaliana_eg_gene\n')
-    dataset = input('Enter your database name : ')
-    print('\n\n')
-    print('Example of liste for filters : ensembl_gene_id external_gene_name description chromosome_name start_position end_position')
-    filter = input('Enter your list of filter : ')
-    filter = filter.split()
-    print('\n\n')
-    resp, filt = getAllValuesOfAllAttributesOfADataset(server, dataset, filter=filter)
-    createDataFrameFromFilterAndResponseValues(filt, resp, fileName='dataset')
-    print('###########################################################################################################')
-    print(resp)
-    print('###########################################################################################################')
-    print(filt)
-    print('###########################################################################################################')
+    print("Menu --> 2. To analyze your data !\n")
+    print("9. Back")
+    print("0. Quit")
+    choice = input(" >>  ")
+    exec_menu(choice)
+    return
+
+# Menu 3
+def menu3():
+    print("Menu --> 3. To analyze sentiments of your data !\n")
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
@@ -88,6 +82,7 @@ menu_actions = {
     'main_menu': main_menu,
     '1': menu1,
     '2': menu2,
+    '3': menu3,
     '9': back,
     '0': exit,
 }
