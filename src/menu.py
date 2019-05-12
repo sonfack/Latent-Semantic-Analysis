@@ -1,5 +1,5 @@
 import os, sys
-from src.commons import createtfIdfModel, singularDecomposition, wordImportance, 
+from src.commons import createtfIdfModel, singularDecomposition,  wordImportance
 
 listText = ""
 
