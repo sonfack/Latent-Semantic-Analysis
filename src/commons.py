@@ -1,3 +1,12 @@
+import pandas as pd
+import numpy as np 
+import pickle
+import os
+import sys
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import TruncatedSVD
+from sklearn.preprocessing import Normalizer
 
 """
 This function task a list of text a fit a model that will be used to creat a term-document matrix.
