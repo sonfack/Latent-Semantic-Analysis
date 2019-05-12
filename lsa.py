@@ -1,6 +1,9 @@
+from src.menu import main_menu
 import pandas as pd
 import numpy as np 
 import pickle
+import os
+import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import TruncatedSVD
@@ -58,7 +61,7 @@ def singularDecomposition(listText):
     print('end lsa')
     
 if __name__=='__main__':
-    
+    main_menu()
     #Training our model: This should be done ones 
     #createtfIdfModel(listText)
     
@@ -66,5 +69,5 @@ if __name__=='__main__':
     # wordImportance(listText,1, 'error')
 
     # Singular Value  Decomposition
-    singularDecomposition(listText)
+    #singularDecomposition(listText)
     
