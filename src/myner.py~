@@ -1,0 +1,9 @@
+import spacy
+nlp = spacy.load("en")
+text = "But Google is starting from behind. The company made a late push\ninto hardware, and Apple’s Siri"
+def ner(text):
+    doc = nlp(text)
+    for entity in doc:
+        print(entity.text, '-', entity.label)
+
+ner(text)
