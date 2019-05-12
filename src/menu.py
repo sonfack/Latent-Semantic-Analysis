@@ -2,6 +2,8 @@ import os, sys
 from src.commons import createtfIdfModel, singularDecomposition,  wordImportance
 
 listText = ""
+N = 100
+newListText = ""
 
 # =======================
 #     MENUS FUNCTIONS
@@ -43,6 +45,8 @@ def menu1():
     dataFile = input(">> ")
     dataFile = os.path.join("../data", dataFile)
     df = pd.read_csv(dataFile)
+    newdf = df.iloc[:N]
+    newListText = newdf['Text']
     print("\n Enter you frame column containing text \n")
     # dfColumn = "Text"
     dfColumn = input(">> ")
@@ -79,7 +83,7 @@ def menu3():
     if not listText:
         menu1()
     # Singular Value  Decomposition
-    singularDecomposition(listText)
+    singularDecomposition(newListText)
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
