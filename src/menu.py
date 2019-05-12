@@ -1,12 +1,9 @@
-
 # =======================
 #     MENUS FUNCTIONS
 # =======================
 
 # Main menu
 def main_menu():
-    os.system("cls" if os.name == "nt" else "clear")
-
     print("Welcome,\n")
     print("Please choose the menu you want to start:")
     print("1. To create LSA modle")
