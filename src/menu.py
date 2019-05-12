@@ -1,8 +1,14 @@
+import os, sys
+from src.commons import createtfIdfModel, singularDecomposition, wordImportance, 
+
+listText = ""
+
 # =======================
 #     MENUS FUNCTIONS
 # =======================
 # Main menu
 def main_menu():
+    os.system("cls" if os.name == "nt" else "clear")
     print("Welcome,\n")
     print("Please choose the menu you want to start:")
     print("1. To create LSA modle")
@@ -17,6 +23,7 @@ def main_menu():
 
 # Execute menu
 def exec_menu(choice):
+    os.system("cls" if os.name == "nt" else "clear")
     ch = choice.lower()
     if ch == '':
         menu_actions['main_menu']()
@@ -32,6 +39,18 @@ def exec_menu(choice):
 # Menu 1
 def menu1():
     print("Menu --> To create LSA model !\n")
+    print("Enter CSV data file \n")
+    dataFile = input(">> ")
+    dataFile = os.path.join("../data", dataFile)
+    df = pd.read_csv(dataFile)
+    print("\n Enter you frame column containing text \n")
+    # dfColumn = "Text"
+    dfColumn = input(">> ")
+    if not dfColumn:
+        dfColumn = "Text"
+    listText = df[dfColumn]
+    #Training our model: This should be done ones 
+    createtfIdfModel(listText)
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
@@ -42,6 +61,12 @@ def menu1():
 # Menu 2
 def menu2():
     print("Menu --> 2. To analyze your data !\n")
+    if not listText:
+        menu1()
+    print("Enter the word you are looking for it importance \n")
+    word = input(">> ")
+    # example : wordImportance(listText,1, 'error')
+    wordImportance(listText,1, word)
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
@@ -51,6 +76,10 @@ def menu2():
 # Menu 3
 def menu3():
     print("Menu --> 3. To analyze sentiments of your data !\n")
+    if not listText:
+        menu1()
+    # Singular Value  Decomposition
+    singularDecomposition(listText)
     print("9. Back")
     print("0. Quit")
     choice = input(" >>  ")
